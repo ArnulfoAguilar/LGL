@@ -1,0 +1,29 @@
+Entradas:
+
+Salidas:
+Kardex
+Saldos de inventario
+Movimientos de inventario
+Ordenes de pedido
+
+Menu
+
+-Inicio
+-Inventario general
+-Productos
+ -Listado de productos
+ -Nuevo producto
+-Proveedores
+ -Listado de proveedores
+ -Nuevo proveedor
+-Categorias
+ -Lista de categorias
+ -Nueva categoria 
+-Orden de compra
+-Orden de pedido
+-Usuarios
+ -Lista de usuarios
+ -Nuevo usuario
+-Reportes
+ -Reporte 1
+ -Reporte 2
