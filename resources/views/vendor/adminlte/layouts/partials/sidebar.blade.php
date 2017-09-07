@@ -62,12 +62,20 @@
                     <li><a href="#">{{ trans('message.categoriaNueva') }}</a></li>
                 </ul>
             </li>
+            {{-- Formulas --}}
+            <li class="treeview">
+                <a href="#"><i class='fa fa-puzzle-piece'></i> <span>Fórmulas</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('formulaLista') }}">Lista de fórmulas</a></li>
+                    <li><a href="{{ route('formulaNueva') }}">Nueva fórmula</a></li>
+                </ul>
+            </li>
             {{-- Salidas --}}
             <li class="treeview">
                 <a href="#"><i class='fa fa-arrow-up'></i> <span>{{ trans('message.salidaProducto') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">{{ trans('message.salidaIndividual') }}</a></li>
-                    <li><a href="#">{{ trans('message.reporte1') }}</a></li>
+                    <li><a href="#">Venta individual</a></li>
+                    <li><a href="{{ route('salidaProductos') }}">Ventas</a></li>
                 </ul>
             </li>
             {{-- Entradas --}}
@@ -75,15 +83,16 @@
                 <a href="#"><i class='fa fa-arrow-down'></i> <span>{{ trans('message.entradaProducto') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href=" {{ route('entradaIndividual') }} ">{{ trans('message.entradaIndividual') }}</a></li>
-                    <li><a href="#">{{ trans('message.reporte1') }}</a></li>
+                    <li><a href="{{ route('entradaProductos') }}">{{ trans('message.entradaProductos') }}</a></li>
                 </ul>
             </li>
             {{-- Reportes --}}
             <li class="treeview">
                 <a href="#"><i class='fa fa-bar-chart'></i> <span>{{ trans('message.reporte') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">{{ trans('message.reporte1') }}</a></li>
-                    <li><a href="#">{{ trans('message.reporte1') }}</a></li>
+                    <li><a href="#">Reportes compras</a></li>
+                    <li><a href="#">Reportes ventas</a></li>
+                    <li><a href="#">Reportes inventarios</a></li>
                 </ul>
             </li>
             {{-- Usuarios --}}

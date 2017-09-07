@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	{{ trans('message.tituloInventarioGeneral') }}
+	Kardex producto
 @endsection
 
 @section('CSSx')
@@ -10,7 +10,7 @@
 @endsection
 
 @section('contentheader_title')
-  {{ trans('message.tituloProductoLista') }}
+  Kardex producto
 @endsection
 
 @section('contentheader_description')
@@ -27,7 +27,7 @@
     <div class="col-xs-12">
       <div class="box box-primary">
         <div class="box-header">
-          <h3 class="box-title">Lista de alumnos</h3>
+          <h3 class="box-title">Kardex</h3>
         </div><!-- /.box-header -->
         <div class="box-body table-responsive">
           <table id="tablaKardex" class="table table-bordered table-hover">

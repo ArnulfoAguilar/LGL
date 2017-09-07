@@ -32,10 +32,11 @@ return [
     'usuarioNuevo'              => 'Nuevo usuario',
     'reporte'                   => 'Reportes',
     'reporte1'                  => 'Reporte 1',
-    'salidaProducto'            => 'Salidas',
-    'entradaProducto'           => 'Entradas',
+    'salidaProducto'            => 'Ventas',
+    'entradaProducto'           => 'Compras',
     'salidaIndividual'          => 'Venta individual',
     'entradaIndividual'         => 'Compra individual',
+    'entradaProductos'             => 'Compras',
     // Titulos
     'tituloProductoNuevo'       => 'Producto nuevo',
     'tituloFormProductoNuevo'   => 'Datos del nuevo producto',

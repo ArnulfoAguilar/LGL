@@ -16,4 +16,18 @@ class MovimientoController extends Controller
     	return view('movimientos.entradaindividual')->with(['productos' => $productos])->with(['proveedores' => $proveedores]);
     }
 
+    public function EntradaProductos()
+    {
+        $productos = Producto::all();
+        $proveedores = Proveedor::all();
+    	return view('movimientos.entradaProductos')->with(['productos' => $productos])->with(['proveedores' => $proveedores]);
+    }
+
+    public function SalidaProductos()
+    {
+        $productos = Producto::all();
+        $proveedores = Proveedor::all();
+        return view('movimientos.salidaProductos')->with(['productos' => $productos])->with(['proveedores' => $proveedores]);
+    }
+
 }

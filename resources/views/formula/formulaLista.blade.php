@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	Productos
+	Formulas
 @endsection
 
 @section('CSSx')
@@ -10,7 +10,7 @@
 @endsection
 
 @section('contentheader_title')
-  Productos
+  Formulas
 @endsection
 
 @section('contentheader_description')
@@ -27,36 +27,43 @@
     <div class="col-xs-12">
       <div class="box box-primary">
         <div class="box-header">
-          <h3 class="box-title">Lista de productos</h3>
+          <h3 class="box-title">Lista de formulas</h3>
         </div><!-- /.box-header -->
         <div class="box-body table-responsive">
           <table id="tablaAlumnos" class="table table-hover">
             <thead>
               <tr>
                 <th>Código</th>
-                <th>Nombre</th>
+                <th>Producto</th>
                 <th>Unidad de medida</th>
-                <th>Cantidad</th>
-                <th>Valor unitario</th>
                 <th>Acción</th>
               </tr>
             </thead>
             <tbody>
-              @foreach($productos as $producto)
+              {{-- @foreach($productos as $producto) --}}
               <tr>
-              <td>{{$producto->codigo}}</td>
-              <td>{{$producto->nombre}}</td>
-              <td>{{$producto->unidadMedida->nombre}}</td>
-              <td>{{$producto->cantidad}}</td>
-              <td>{{$producto->valor_unitario}}</td>
+              <td>PT001</td>
+              <td>Producto 1</td>
+              <td>Kilogramos - Kgs</td>
               <td align="center">
-                <a href="{{ route('productoEditar', ['id' => $producto->id]) }}" class="btn btn-warning"><span class="fa fa-edit"></span></a>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar" data-producto="{{ $producto->nombre }}" data-id="{{ $producto->id }}">
+                <a href="#" class="btn btn-warning"><span class="fa fa-edit"></span></a>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar" data-producto="Producto 1" data-id="1">
                   <span class="fa fa-trash"></span>
                 </button>
               </td>
               </tr>
-            @endforeach
+              <tr>
+              <td>PT002</td>
+              <td>Producto 2</td>
+              <td>Kilogramos - Kgs</td>
+              <td align="center">
+                <a href="#" class="btn btn-warning"><span class="fa fa-edit"></span></a>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar" data-producto="Producto 1" data-id="1">
+                  <span class="fa fa-trash"></span>
+                </button>
+              </td>
+              </tr>
+            {{-- @endforeach --}}
             </tbody>
             <tfoot>
             </tfoot>

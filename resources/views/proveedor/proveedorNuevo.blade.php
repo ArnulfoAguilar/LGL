@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	{{ trans('message.tituloProveedorNuevo') }}
+	Proveedores
 @endsection
 
 @section('CSSx')
@@ -9,7 +9,7 @@
 @endsection
 
 @section('contentheader_title')
-	{{ trans('message.tituloProveedorNuevo') }}
+	Proveedores
 @endsection
 
 @section('contentheader_description')
@@ -23,7 +23,7 @@
 <!-- Form de nuevo proveedor -->
 <div class="box box-primary">
 	<div class="box-header with-border">
-	  <h3 class="box-title">{{ trans('message.tituloFormProveedorNuevo') }}</h3>
+	  <h3 class="box-title">Lista de proveedores</h3>
 	</div><!-- /.box-header -->
 	<!-- form start -->
 	<form class="form-horizontal" action="{{ route('proveedorNuevoPost') }}" method="POST">

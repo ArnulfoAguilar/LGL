@@ -41,6 +41,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// Movimientos
 	Route::name('entradaIndividual')->get('/entradaInvividual/','MovimientoController@EntradaIndividual');
+	Route::name('entradaProductos')->get('/entradaProductos/','MovimientoController@EntradaProductos');
+	Route::name('salidaProductos')->get('/salidaProductos/','MovimientoController@SalidaProductos');
 
 	// Gestion de Usuarios
 	Route::name('usuarioLista')->get('/usuario/','UsuarioController@UsuarioLista');	
@@ -50,5 +52,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::name('usuarioEditarPassPut')->put('/usuario/{id}/pass','UsuarioController@UsuarioEditarPassPut');
 	Route::name('usuarioEditarPut')->put('/usuario/{id}','UsuarioController@UsuarioEditarPut');
 	Route::name('usuarioEliminar')->delete('/usuario/{id}','UsuarioController@UsuarioEliminar');
+
+	// Formulas
+	Route::name('formulaLista')->get('/formula/','FormulaController@FormulaLista');	
+	Route::name('formulaNueva')->get('/formula/nueva','FormulaController@FormulaNueva');
 
 });
