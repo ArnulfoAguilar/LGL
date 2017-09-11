@@ -23,7 +23,7 @@ class Movimiento extends Model
     }
 
     protected $fillable = [
-    'producto_id', 'detalle','cantidad_existencia', 'valor_unitario_existencia',
+    'producto_id', 'detalle','cantidadExistencia', 'valorUnitarioExistencia',
     ];
     
 }

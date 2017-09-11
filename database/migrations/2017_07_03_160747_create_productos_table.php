@@ -20,10 +20,10 @@ class CreateProductosTable extends Migration
             $table->integer('unidadMedida_id')->unsinged();
             $table->integer('tipoProducto_id')->unsinged();
             $table->float('cantidad',8,2)->nullable();
-            $table->float('valor_unitario',8,2)->nullable();
-            $table->float('valor_total',8,2)->nullable();
-            $table->float('existencia_min',8,2)->nullable();
-            $table->float('existencia_max',8,2)->nullable();
+            $table->float('valorUnitario',8,2)->nullable();
+            $table->float('valorTotal',8,2)->nullable();
+            $table->float('existenciaMin',8,2)->nullable();
+            $table->float('existenciaMax',8,2)->nullable();
             $table->timestamps();
         });
     }

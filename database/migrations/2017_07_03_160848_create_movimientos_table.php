@@ -20,8 +20,8 @@ class CreateMovimientosTable extends Migration
             // $table->string('tipo',10);
             // $table->float('cantidad',8,2);
             // $table->float('valor_unitario',8,2);
-            $table->float('cantidad_existencia',8,2)->nullable();
-            $table->float('valor_unitario_existencia',8,2)->nullable();
+            $table->float('cantidadExistencia',8,2)->nullable();
+            $table->float('valorUnitarioExistencia',8,2)->nullable();
             // $table->string('proveedor',50)->nullable();
             // $table->integer('detalleMovimiento_id')->unsigned();
             $table->timestamps();

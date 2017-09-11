@@ -12,12 +12,12 @@ class Salida extends Model
         return $this->belongsTo('App\Movimiento');
     }
 
-    public function cliente()
+    public function ordenPedido()
     {
-        return $this->hasOne('App\Cliente');
+        return $this->hasOne('App\OrdenPedido');
     }
 	
     protected $fillable = [
-    'movimiento_id', 'tipo','cantidad', 'valor_unitario', 'cliente_id',
+    'movimiento_id', 'tipo','cantidad', 'valorUnitario', 'ordenPedido_id',
     ];
 }

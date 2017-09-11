@@ -12,12 +12,12 @@ class Entrada extends Model
         return $this->belongsTo('App\Movimiento');
     }
 
-    public function proveedor()
+    public function factura()
     {
-        return $this->hasOne('App\Proveedor');
+        return $this->hasOne('App\Factura');
     }
 
     protected $fillable = [
-    'movimiento_id', 'tipo','cantidad', 'valor_unitario', 'proveedor_id',
+    'movimiento_id', 'tipo','cantidad', 'valorUnitario', 'factura_id',
     ];
 }

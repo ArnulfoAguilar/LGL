@@ -13,6 +13,6 @@ class Cliente extends Model
     }
 
     protected $fillable = [
-        'nombre', 'telefono_principal', 'telefono_secundario', 'contacto','direccion',
+        'nombre', 'telefonoPrincipal', 'telefonoSecundario', 'contacto','direccion',
     ];
 }

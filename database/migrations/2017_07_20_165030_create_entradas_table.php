@@ -18,8 +18,8 @@ class CreateEntradasTable extends Migration
             $table->integer('movimiento_id')->unsigned();
             $table->string('tipo',10);
             $table->float('cantidad',8,2);
-            $table->float('valor_unitario',8,2);
-            $table->integer('proveedor_id')->unsigned()->nullable();
+            $table->float('valorUnitario',8,2);
+            $table->integer('factura_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

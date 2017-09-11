@@ -18,8 +18,8 @@ class CreateSalidasTable extends Migration
             $table->integer('movimiento_id')->unsigned();
             $table->string('tipo',10);
             $table->float('cantidad',8,2);
-            $table->float('valor_unitario',8,2);
-            $table->integer('cliente_id')->unsigned()->nullable();
+            $table->float('valorUnitario',8,2);
+            $table->integer('ordenPedido_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

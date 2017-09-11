@@ -28,6 +28,6 @@ class Producto extends Model
     }
     
     protected $fillable = [
-        'nombre', 'codigo', 'unidadMedida_id', 'tipoProducto_id','cantidad', 'valor_unitario', 'valor_total', 'existencia_min', 'existencia_max',
+        'nombre', 'codigo', 'unidadMedida_id', 'tipoProducto_id','cantidad', 'valorUnitario', 'valorTotal', 'existenciaMin', 'existenciaMax',
     ];
 }
