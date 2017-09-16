@@ -24,9 +24,17 @@ class ProductoController extends Controller
     	return view('producto.productoNuevo')->with(['tipoProductos' => $tipoProductos])->with(['unidadMedidas' => $unidadMedidas]);
     }
 
-    public function ProductoNuevoPost(ProductoNuevoRequest $request)
+    public function ProductoNuevoPost(Request $request)
     {
-    	$producto = Producto::create($request->only('nombre','tipoProducto_id','unidadMedida_id','cantidad','valor_unitario','existencia_min','existencia_max'));
+        $this->validate($request, [
+            'nombre' => 'required',
+            'tipoProducto_id' => 'required',
+            'unidadMedida_id' => 'required',
+            'existenciaMin' => 'numeric|nullable',
+            'existenciaMax' => 'numeric|nullable',
+        ]);
+
+    	$producto = Producto::create($request->only('nombre','tipoProducto_id','unidadMedida_id','existenciaMin','existenciaMax'));
     	$producto->codigo = $producto->TipoProducto->codigo . $producto->id;
     	$producto->update();
     	session()->flash('message.level', 'success');
@@ -42,10 +50,18 @@ class ProductoController extends Controller
     	return view('producto.productoEditar')->with(['tipoProductos' => $tipoProductos])->with(['unidadMedidas' => $unidadMedidas])->with(['producto' => $producto]);
     }
 
-    public function ProductoEditarPut(ProductoEditarRequest $request)
+    public function ProductoEditarPut(Request $request)
     {
+        $this->validate($request, [
+            'nombre' => 'required',
+            'tipoProducto_id' => 'required',
+            'unidadMedida_id' => 'required',
+            'existenciaMin' => 'numeric|nullable',
+            'existenciaMax' => 'numeric|nullable',
+        ]);
+
     	$producto = Producto::find($request->id);
-    	$producto->update($request->only('nombre','tipoProducto_id','unidadMedida_id','cantidad','valor_unitario','existencia_min','existencia_max'));
+    	$producto->update($request->only('nombre','tipoProducto_id','unidadMedida_id','cantidad','valorUnitario','existenciaMin','existenciaMax'));
     	$producto->codigo = $producto->TipoProducto->codigo . $producto->id;
     	$producto->save();
     	session()->flash('message.level', 'success');

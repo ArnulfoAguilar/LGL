@@ -28,6 +28,7 @@
       <div class="box box-primary">
         <div class="box-header">
           <h3 class="box-title">Lista de productos</h3>
+          <a href="{{ route('productoNuevo') }}" class="btn btn-lg btn-primary pull-right"><span class="fa fa-plus"></span> Nuevo</a>
         </div><!-- /.box-header -->
         <div class="box-body table-responsive">
           <table id="tablaAlumnos" class="table table-hover">
@@ -48,7 +49,7 @@
               <td>{{$producto->nombre}}</td>
               <td>{{$producto->unidadMedida->nombre}}</td>
               <td>{{$producto->cantidad}}</td>
-              <td>{{$producto->valor_unitario}}</td>
+              <td>{{$producto->valorUnitario}}</td>
               <td align="center">
                 <a href="{{ route('productoEditar', ['id' => $producto->id]) }}" class="btn btn-warning"><span class="fa fa-edit"></span></a>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar" data-producto="{{ $producto->nombre }}" data-id="{{ $producto->id }}">

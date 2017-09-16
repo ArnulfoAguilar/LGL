@@ -7,6 +7,21 @@
 @section('CSSx')
   <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset('/plugins/dataTables.bootstrap.css') }}">
+  <style type="text/css">
+    .entradaCSS {
+      background-color: #F0F4C3;
+    }
+    .salidaCSS {
+      background-color: #FFCDD2;
+    }
+    .existenciaCSS {
+      background-color: #BBDEFB;
+    }
+    thead {
+      background-color: #607D8B;
+      color: white;
+    }
+  </style>
 @endsection
 
 @section('contentheader_title')
@@ -27,7 +42,8 @@
     <div class="col-xs-12">
       <div class="box box-primary">
         <div class="box-header">
-          <h3 class="box-title">Kardex</h3>
+          <h3 class="box-title">Kardex de {{$producto->nombre}}</h3>
+          <a href="{{ route('inventarioGeneral') }}" class="btn btn-lg btn-default pull-right">Regresar</a>
         </div><!-- /.box-header -->
         <div class="box-body table-responsive">
           <table id="tablaKardex" class="table table-bordered table-hover">
@@ -54,36 +70,36 @@
             <tbody>
               @foreach($movimientos as $movimiento)
               <tr>
-              <td>{{$movimiento->created_at->format('d-m-Y')}}</td>
-              <td>{{$movimiento->detalle}}</td>
-              @if($movimiento->entrada != null)
-                <td>{{$movimiento->entrada->cantidad}}</td>
-                <td>${{ number_format($movimiento->entrada->valor_unitario,2) }}</td>
-                <td>${{ number_format($movimiento->entrada->valor_total,2) }}</td>
-                <td> -- </td>
-                <td> -- </td>
-                <td> -- </td>
-              @elseif($movimiento->salida != null)
-                <td> -- </td>
-                <td> -- </td>
-                <td> -- </td>
-                <td>{{$movimiento->salida->cantidad}}</td>
-                <td>${{ number_format($movimiento->salida->valor_unitario,2) }}</td>
-                <td>${{ number_format($movimiento->salida->valor_total,2) }}</td>
-              @else
-                <td> -- </td>
-                <td> -- </td>
-                <td> -- </td>
-                <td> -- </td>
-                <td> -- </td>
-                <td> -- </td>
-              @endif
-              <td>{{$movimiento->cantidad_existencia}}</td>
-              <td>${{ number_format($movimiento->valor_unitario_existencia,2) }}</td>
-              <td>${{ number_format($movimiento->valor_total_existencia,2) }}</td>
-{{--               <td align="center">
-                <a href="{{ route('productoEditar', ['id' => $movimiento->id]) }}" class="btn btn-primary"><span class="fa fa-th"></span></a>
-              </td> --}}
+                <td>{{$movimiento->created_at->format('d-m-Y')}}</td>
+                <td>{{$movimiento->detalle}}</td>
+                @if($movimiento->entrada != null)
+                  <td class="entradaCSS">{{$movimiento->entrada->cantidad}}</td>
+                  <td class="entradaCSS">${{ number_format($movimiento->entrada->valorUnitario,2) }}</td>
+                  <td class="entradaCSS">${{ number_format($movimiento->entrada->valorTotal,2) }}</td>
+                  <td class="salidaCSS"> -- </td>
+                  <td class="salidaCSS"> -- </td>
+                  <td class="salidaCSS"> -- </td>
+                @elseif($movimiento->salida != null)
+                  <td class="entradaCSS"> -- </td>
+                  <td class="entradaCSS"> -- </td>
+                  <td class="entradaCSS"> -- </td>
+                  <td class="salidaCSS">{{$movimiento->salida->cantidad}}</td>
+                  <td class="salidaCSS">${{ number_format($movimiento->salida->valorUnitario,2) }}</td>
+                  <td class="salidaCSS">${{ number_format($movimiento->salida->valorTotal,2) }}</td>
+                @else
+                  <td> -- </td>
+                  <td> -- </td>
+                  <td> -- </td>
+                  <td> -- </td>
+                  <td> -- </td>
+                  <td> -- </td>
+                @endif
+                <td class="existenciaCSS">{{$movimiento->cantidadExistencia}}</td>
+                <td class="existenciaCSS">${{ number_format($movimiento->valorUnitarioExistencia,2) }}</td>
+                <td class="existenciaCSS">${{ number_format($movimiento->valorTotalExistencia,2) }}</td>
+  {{--               <td align="center">
+                  <a href="{{ route('productoEditar', ['id' => $movimiento->id]) }}" class="btn btn-primary"><span class="fa fa-th"></span></a>
+                </td> --}}
               </tr>
             @endforeach
             </tbody>

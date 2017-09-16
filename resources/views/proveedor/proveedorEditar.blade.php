@@ -62,14 +62,14 @@
 		  	<div class="form-group">
 	        <label class="col-sm-4 control-label">Telefono principal</label>
 	        <div class="col-sm-8">
-	          <input type="text" class="form-control" placeholder="(503) 9999-9999" name="telefono_principal" data-inputmask='"mask": "(999) 9999-9999"' data-mask value="{{ $proveedor->telefono_principal }}" >
+	          <input type="text" class="form-control" placeholder="(503) 9999-9999" name="telefonoPrincipal" data-inputmask='"mask": "(999) 9999-9999"' data-mask value="{{ $proveedor->telefonoPrincipal }}" >
 	        </div>
 	      </div>
 	      {{-- Telefono secundario del proveedor --}}
 		  	<div class="form-group">
 	        <label class="col-sm-4 control-label">Telefono secundario</label>
 	        <div class="col-sm-8">
-	          <input type="text" class="form-control" placeholder="(503) 9999-9999" name="telefono_secundario" data-inputmask='"mask": "(999) 9999-9999"' data-mask value="{{ $proveedor->telefono_secundario }}" >
+	          <input type="text" class="form-control" placeholder="(503) 9999-9999" name="telefonoSecundario" data-inputmask='"mask": "(999) 9999-9999"' data-mask value="{{ $proveedor->telefonoSecundario }}" >
 	        </div>
 	      </div>
 	  	</div>

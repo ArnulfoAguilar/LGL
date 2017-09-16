@@ -77,36 +77,36 @@
 		  	<div class="form-group">
 	        <label class="col-sm-4 control-label">Cantidad minima</label>
 	        <div class="col-sm-8">
-	        	<input type="number" min="0" class="form-control" placeholder="0" name="existencia_min">
+	        	<input type="number" min="0" class="form-control" placeholder="0" name="existenciaMin">
 	        </div>
 	      </div>
 	      {{-- Cantidad maxima --}}
 		  	<div class="form-group">
 	        <label class="col-sm-4 control-label">Cantidad maxima</label>
 	        <div class="col-sm-8">
-	          <input type="number" min="0" class="form-control" placeholder="0" name="existencia_max">
+	          <input type="number" min="0" class="form-control" placeholder="0" name="existenciaMax">
 	        </div>
 	      </div>
-	      <br>
+{{-- 	      <br>
 		  	<h4>Inventario inicial</h4>
-		  	<br>
+		  	<br> --}}
 		  	{{-- Cantidad inicial --}}
-		  	<div class="form-group">
+{{-- 		  	<div class="form-group">
 	        <label class="col-sm-4 control-label">Cantidad inicial</label>
 	        <div class="col-sm-8">
 	          <input type="number" min="0" class="form-control" placeholder="0" name="cantidad">
 	        </div>
-	      </div>
+	      </div> --}}
 	      {{-- Valor unitario  --}}
-		  	<div class="form-group">
+{{-- 		  	<div class="form-group">
 	        <label class="col-sm-4 control-label">Valor unitario</label>
 	        <div class="col-sm-8">
 	        	<div class="input-group">
 		        	<span class="input-group-addon">$</span>
-		          <input type="number" step="0.01" min="0" class="form-control" placeholder="0.00" name="valor_unitario">        		
+		          <input type="number" step="0.01" min="0" class="form-control" placeholder="0.00" name="valorUnitario">        		
 	        	</div>
 	        </div>
-	      </div>
+	      </div> --}}
 	  	</div>
 	  </div><!-- /.box-body -->
 

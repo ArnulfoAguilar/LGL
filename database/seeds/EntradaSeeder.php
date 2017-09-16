@@ -16,24 +16,24 @@ class EntradaSeeder extends Seeder
         'movimiento_id' => '1',
     	'tipo' => 'Inicio',
     	'cantidad' => '100',
-    	'valor_unitario' => '1.3',
-    	'proveedor_id' => '1',
+    	'valorUnitario' => '1.5',
+    	'factura_id' => '1',
     	]);
 
     	Entrada::create([
         'movimiento_id' => '2',
     	'tipo' => 'Normal',
-    	'cantidad' => '150',
-    	'valor_unitario' => '1.1',
-    	'proveedor_id' => '1',
+    	'cantidad' => '200',
+    	'valorUnitario' => '1.3',
+    	'factura_id' => '2',
     	]);
 
     	Entrada::create([
         'movimiento_id' => '4',
     	'tipo' => 'Normal',
-    	'cantidad' => '50',
-    	'valor_unitario' => '1.3',
-    	'proveedor_id' => '1',
+    	'cantidad' => '500',
+    	'valorUnitario' => '1.6',
+    	'factura_id' => '3',
     	]);
     }
 }

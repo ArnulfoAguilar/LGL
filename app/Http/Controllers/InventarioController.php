@@ -12,7 +12,7 @@ class InventarioController extends Controller
     {
     	$productos = Producto::all();
     	foreach ($productos as $producto) {
-    		$producto->porcentajeStock = ($producto->cantidad) / ($producto->existencia_max - $producto->existencia_min) * 100;
+    		$producto->porcentajeStock = ($producto->cantidad) / ($producto->existenciaMax - $producto->existenciaMin) * 100;
     	}
     	// dd($productos);
     	return view('inventario.inventariogeneral')->with(['productos' => $productos]);
@@ -20,11 +20,17 @@ class InventarioController extends Controller
 
     public function KardexProducto(Request $request)
     {
+        $producto = Producto::find($request->id);
     	$movimientos = Movimiento::where('producto_id', $request->id)->get();
     	foreach ($movimientos as $movimiento) {
-    		$movimiento->valor_total = $movimiento->cantidad * $movimiento->valor_unitario;
-    		$movimiento->valor_total_existencia = $movimiento->cantidad_existencia * $movimiento->valor_unitario_existencia;
+            if ($movimiento->entrada != null) {
+                $movimiento->entrada->valorTotal = $movimiento->entrada->cantidad * $movimiento->entrada->valorUnitario;
+            }
+            if ($movimiento->salida != null) {
+                $movimiento->salida->valorTotal = $movimiento->salida->cantidad * $movimiento->salida->valorUnitario;
+            }
+    		$movimiento->valorTotalExistencia = $movimiento->cantidadExistencia * $movimiento->valorUnitarioExistencia;
     	}
-    	return view('inventario.kardex')->with(['movimientos' => $movimientos]);	
+    	return view('inventario.kardex')->with(['movimientos' => $movimientos])->with(['producto' => $producto]);	
     }
 }

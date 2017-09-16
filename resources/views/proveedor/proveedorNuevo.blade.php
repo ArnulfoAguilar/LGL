@@ -61,14 +61,14 @@
 		  	<div class="form-group">
 	        <label class="col-sm-4 control-label">Telefono principal</label>
 	        <div class="col-sm-8">
-	          <input type="text" class="form-control" placeholder="(503) 9999-9999" name="telefono_principal" data-inputmask='"mask": "(999) 9999-9999"' data-mask>
+	          <input type="tel" class="form-control" id="telefonoPrincipal" placeholder="7777-7777" name="telefonoPrincipal">
 	        </div>
 	      </div>
 	      {{-- Telefono secundario del proveedor --}}
 		  	<div class="form-group">
 	        <label class="col-sm-4 control-label">Telefono secundario</label>
 	        <div class="col-sm-8">
-	          <input type="text" class="form-control" placeholder="(503) 9999-9999" name="telefono_secundario" data-inputmask='"mask": "(999) 9999-9999"' data-mask>
+	          <input type="tel" class="form-control" id="telefonoSecundario" placeholder="7777-7777" name="telefonoSecundario">
 	        </div>
 	      </div>
 	  	</div>
@@ -84,15 +84,6 @@
 @endsection
 
 @section('JSx')
-<!-- InputMask -->
-<script src="{{asset('/plugins/jquery.inputmask.js')}}"></script>
-<script src="{{asset('/plugins/jquery.inputmask.date.extensions.js')}}"></script>
-<script src="{{asset('/plugins/jquery.inputmask.extensions.js')}}"></script>
-<script>
-  $(function () {
-    //Money Euro
-    $("[data-mask]").inputmask();
-  });
-</script>
+
 @endsection
 

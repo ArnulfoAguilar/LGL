@@ -13,27 +13,27 @@ class ProductosSeeder extends Seeder
     public function run()
     {
         Producto::create([
-        'nombre' => 'Leche SULA', 
-        'codigo' => 'RV01',
+        'nombre' => 'Producto 1', 
+        'codigo' => 'RV1',
         'unidadMedida_id' => '1',
         'tipoProducto_id' => '3',
-        'cantidad' => '100',
-        'valor_unitario' => '1.5',
-        'valor_total' => '150.0',
-        'existencia_min' => '20',
-        'existencia_max' => '1000',
+        'cantidad' => '500',
+        'valorUnitario' => '1.5',
+        'valorTotal' => '750',
+        'existenciaMin' => '20',
+        'existenciaMax' => '1000',
     	]);
 
         Producto::create([
-        'nombre' => 'Esensia Vainilla', 
-        'codigo' => 'MP01',
+        'nombre' => 'Producto 2', 
+        'codigo' => 'MP1',
         'unidadMedida_id' => '5',
         'tipoProducto_id' => '1',
-        'cantidad' => '50',
-        'valor_unitario' => '1.0',
-        'valor_total' => '50.0',
-        'existencia_min' => '10',
-        'existencia_max' => '100',
+        'cantidad' => '0',
+        'valorUnitario' => '0',
+        'valorTotal' => '0',
+        'existenciaMin' => '10',
+        'existenciaMax' => '100',
     	]);
     }
 }

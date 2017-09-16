@@ -14,30 +14,30 @@ class MovimientosSeeder extends Seeder
     {
         Movimiento::create([
         'producto_id' => '1',
-        'detalle' => 'Inventario inicial de mes de junio',
-        'cantidad_existencia' => '100',
-        'valor_unitario_existencia' => '1.3',
+        'detalle' => 'Inventario inicial de mes de agosto',
+        'cantidadExistencia' => '100',
+        'valorUnitarioExistencia' => '1.5',
     	]);
 
     	Movimiento::create([
         'producto_id' => '1',
-        'detalle' => 'Compra #2 de mes de junio',
-        'cantidad_existencia' => '250',
-        'valor_unitario_existencia' => '1.2',
+        'detalle' => 'Compra #1 de mes de agosto',
+        'cantidadExistencia' => '300',
+        'valorUnitarioExistencia' => '1.4',
     	]);
 
     	Movimiento::create([
         'producto_id' => '1',
         'detalle' => 'Venta de Manguito S.A de C.V',
-        'cantidad_existencia' => '180',
-        'valor_unitario_existencia' => '1.2',
+        'cantidadExistencia' => '200',
+        'valorUnitarioExistencia' => '1.4',
     	]);
 
         Movimiento::create([
         'producto_id' => '1',
-        'detalle' => 'Compra de mes de junio',
-        'cantidad_existencia' => '230',
-        'valor_unitario_existencia' => '1.25',
+        'detalle' => 'Compra #2 de mes de agosto',
+        'cantidadExistencia' => '500',
+        'valorUnitarioExistencia' => '1.5',
         ]);
     }
 }

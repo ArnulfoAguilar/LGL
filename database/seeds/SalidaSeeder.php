@@ -15,9 +15,9 @@ class SalidaSeeder extends Seeder
         Salida::create([
         'movimiento_id' => '3',
     	'tipo' => 'Normal',
-    	'cantidad' => '70',
-    	'valor_unitario' => '1.2',
-    	'cliente_id' => '1',
+    	'cantidad' => '100',
+    	'valorUnitario' => '1.4',
+    	'ordenPedido_id' => '1',
     	]);
     }
 }

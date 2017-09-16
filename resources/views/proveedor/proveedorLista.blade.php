@@ -23,6 +23,7 @@
       <div class="box box-primary">
         <div class="box-header">
           <h3 class="box-title">Lista de proveedores</h3>
+          <a href="{{ route('proveedorNuevo') }}" class="btn btn-lg btn-primary pull-right"><span class="fa fa-plus"></span> Nuevo</a>
         </div><!-- /.box-header -->
         <div class="box-body table-responsive">
           <table id="tablaProveedor" class="table table-hover">
@@ -41,8 +42,8 @@
               <tr>
               <td>{{$proveedor->nombre}}</td>
               <td>{{$proveedor->contacto}}</td>
-              <td>{{$proveedor->telefono_principal}}</td>
-              <td>{{$proveedor->telefono_secundario}}</td>
+              <td>{{$proveedor->telefonoPrincipal}}</td>
+              <td>{{$proveedor->telefonoSecundario}}</td>
               {{-- <td>{{$proveedor->direccion}}</td> --}}
               <td align="center">
                 <a href="{{ route('proveedorEditar', ['id' => $proveedor->id]) }}" class="btn btn-warning"><span class="fa fa-edit"></span></a>

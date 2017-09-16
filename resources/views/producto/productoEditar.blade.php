@@ -80,35 +80,35 @@
 				<div class="form-group">
 					<label class="col-sm-4 control-label">Cantidad minima</label>
 					<div class="col-sm-8">
-						<input type="number" min="0" class="form-control" placeholder="0" name="existencia_min" value="{{ $producto->existencia_min }}">
+						<input type="number" min="0" class="form-control" placeholder="0" name="existenciaMin" value="{{ $producto->existenciaMin }}">
 					</div>
 				</div>
 				{{-- Cantidad maxima --}}
 				<div class="form-group">
 					<label class="col-sm-4 control-label">Cantidad maxima</label>
 					<div class="col-sm-8">
-						<input type="number" min="0" class="form-control" placeholder="0" name="existencia_max" value="{{ $producto->existencia_max }}">
+						<input type="number" min="0" class="form-control" placeholder="0" name="existenciaMax" value="{{ $producto->existenciaMax }}">
 					</div>
 				</div>
-				<h4>Inventario inicial</h4>
-				<br>
+{{-- 				<h4>Inventario inicial</h4>
+				<br> --}}
 				{{-- Cantidad inicial --}}
-				<div class="form-group">
+	{{-- 			<div class="form-group">
 					<label class="col-sm-4 control-label">Cantidad inicial</label>
 					<div class="col-sm-8">
 						<input type="number" min="0" class="form-control" placeholder="0" name="cantidad" value="{{ $producto->cantidad }}">
 					</div>
-				</div>
+				</div> --}}
 				{{-- Valor unitario  --}}
-				<div class="form-group">
+{{-- 				<div class="form-group">
 					<label class="col-sm-4 control-label">Valor unitario</label>
 					<div class="col-sm-8">
 						<div class="input-group">
 							<span class="input-group-addon">$</span>
-							<input type="number" step="0.01" min="0" class="form-control" placeholder="0.00" name="valor_unitario" value="{{ $producto->valor_unitario }}">        		
+							<input type="number" step="0.01" min="0" class="form-control" placeholder="0.00" name="valorUnitario" value="{{ $producto->valorUnitario }}">        		
 						</div>
 					</div>
-				</div>
+				</div> --}}
 			</div>
 		</div><!-- /.box-body -->
 

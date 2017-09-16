@@ -20,6 +20,12 @@ class ProveedorController extends Controller
 
     public function ProveedorNuevoPost(Request $request)
     {
+        $this->validate($request, [
+            'nombre' => 'required',
+            'telefonoPrincipal' => 'min:8',
+            'telefonoSecundario' => 'min:8|nullable',
+        ]);
+
     	Proveedor::create($request->only('nombre','contacto','direccion','telefonoPrincipal','telefonoSecundario'));
     	session()->flash('message.level', 'success');
     	session()->flash('message.content', 'El proveedor fue agregado!');
@@ -34,6 +40,12 @@ class ProveedorController extends Controller
 
     public function ProveedorEditarPut(Request $request)
     {
+        $this->validate($request, [
+            'nombre' => 'required',
+            'telefonoPrincipal' => 'min:8',
+            'telefonoSecundario' => 'min:8|nullable',
+        ]);
+
         $proveedor = Proveedor::find($request->id);
         $proveedor->update($request->only('nombre','contacto','direccion','telefonoPrincipal','telefonoSecundario'));
         session()->flash('message.level', 'success');
