@@ -6,17 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrdenPedido extends Model
 {
-    public function salida()
+    public function salidas()
     {
-        return $this->belongsTo('App\Salida');
+        return $this->hasMany('App\Salida');
     }
 
     public function cliente()
     {
-        return $this->hasOne('App\Cliente');
+        return $this->belongsTo('App\Cliente');
     }
 
     protected $fillable = [
-    'numero', 'despachadoPor','rutaArchivo', 'cliente_id',
+    'cliente_id', 'numero', 'detalle', 'rutaArchivo', 'fechaIngreso', 'despachadoPor',
     ];
+
+    protected $table = 'ordenPedidos';
 }

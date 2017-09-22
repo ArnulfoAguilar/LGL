@@ -1,26 +1,26 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	{{ trans('message.tituloProductoEditar') }}
+{{ trans('message.tituloProductoEditar') }}
 @endsection
 
 @section('CSSx')
-	<!-- Select2 -->
-	<link rel="stylesheet" href="{{asset('/plugins/select2.min.css')}}">
+<!-- Select2 -->
+<link rel="stylesheet" href="{{asset('/plugins/select2.min.css')}}">
 @endsection
 
 @section('contentheader_title')
-	{{ trans('message.tituloProductoEditar') }}
+{{ trans('message.tituloProductoEditar') }}
 @endsection
 
 @section('contentheader_description')
-	
+
 @endsection
 
 @section('main-content')
 
 @include('partials.alertaerror')
- 
+
 <!-- Form de nuevo producto -->
 <div class="box box-primary">
 	<div class="box-header with-border">
@@ -50,24 +50,50 @@
 						<input type="text" class="form-control" name="nombre" value="{{ $producto->nombre }}">
 					</div>
 				</div>
+
+				{{-- Categoria --}}
+				<div class="form-group">
+					<label class="col-sm-4 control-label">Categoria</label>
+					<div class="col-sm-8">
+						<select class="form-control select2" name="categoria_id">
+							@foreach($categorias as $categoria)
+							@if($categoria->id == $producto->categoria_id)
+							<option selected value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+							@else
+							<option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+							@endif
+							@endforeach
+						</select>
+					</div>
+				</div>
+
 				{{-- Tipo de producto --}}
 				<div class="form-group">
 					<label class="col-sm-4 control-label">Tipo del producto</label>
 					<div class="col-sm-8">
 						<select class="form-control select2" name="tipoProducto_id" value="{{ $producto->tipoProducto_id }}">
 							@foreach($tipoProductos as $tipoProducto)
+							@if($tipoProducto->id == $producto->tipoProducto_id)
+							<option selected value="{{ $tipoProducto->id }}">{{ $tipoProducto->tipo }}</option>
+							@else
 							<option value="{{ $tipoProducto->id }}">{{ $tipoProducto->tipo }}</option>
+							@endif
 							@endforeach
 						</select>
 					</div>
 				</div>
+
 				{{-- Unidad de medida --}}
 				<div class="form-group">
 					<label class="col-sm-4 control-label">Unidad de medida</label>
 					<div class="col-sm-8">
 						<select class="form-control select2" name="unidadMedida_id" value="{{ $producto->unidadMedida_id }}">
 							@foreach($unidadMedidas as $unidadMedida)
+							@if($unidadMedida->id == $producto->unidadMedida_id)
+							<option selected value="{{ $unidadMedida->id }}">{{ $unidadMedida->nombre }} - {{ $unidadMedida->abreviatura }}</option>
+							@else
 							<option value="{{ $unidadMedida->id }}">{{ $unidadMedida->nombre }} - {{ $unidadMedida->abreviatura }}</option>
+							@endif
 							@endforeach
 						</select>
 					</div>
@@ -91,8 +117,8 @@
 					</div>
 				</div>
 {{-- 				<h4>Inventario inicial</h4>
-				<br> --}}
-				{{-- Cantidad inicial --}}
+	<br> --}}
+	{{-- Cantidad inicial --}}
 	{{-- 			<div class="form-group">
 					<label class="col-sm-4 control-label">Cantidad inicial</label>
 					<div class="col-sm-8">
@@ -129,11 +155,11 @@
 <script src="{{asset('/plugins/jquery.inputmask.date.extensions.js')}}"></script>
 <script src="{{asset('/plugins/jquery.inputmask.extensions.js')}}"></script>
 <script>
-  $(function () {
+	$(function () {
     //Initialize Select2 Elements
     $(".select2").select2();
 
-  });
+});
 </script>
 @endsection
 

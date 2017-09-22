@@ -37,7 +37,7 @@
             {{-- Inicio --}}
             <li><a href="{{ url('home') }}"><i class='fa fa-home'></i> <span>{{ trans('message.inicio') }}</span></a></li>
             {{-- Inventario general --}}
-            <li><a href="{{ route('inventarioGeneral') }}"><i class='fa fa-book'></i> <span>{{ trans('message.inventarioGeneral') }}</span></a></li>
+            <li><a href="{{ route('inventarioGeneral') }}"><i class='glyphicon glyphicon-list'></i> <span>{{ trans('message.inventarioGeneral') }}</span></a></li>
             {{-- Productos --}}
             <li class="treeview">
                 <a href="#"><i class='fa fa-industry'></i> <span>{{ trans('message.producto') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -70,20 +70,30 @@
                     <li><a href="{{ route('formulaNueva') }}">Nueva fórmula</a></li>
                 </ul>
             </li>
-            {{-- Salidas --}}
-            <li class="treeview">
-                <a href="#"><i class='fa fa-arrow-up'></i> <span>{{ trans('message.salidaProducto') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a href="#">Venta individual</a></li>
-                    <li><a href="{{ route('salidaProductos') }}">Ventas</a></li>
-                </ul>
-            </li>
             {{-- Entradas --}}
             <li class="treeview">
-                <a href="#"><i class='fa fa-arrow-down'></i> <span>{{ trans('message.entradaProducto') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-arrow-down'></i> <span>Entrada de producto</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href=" {{ route('entradaIndividual') }} ">{{ trans('message.entradaIndividual') }}</a></li>
-                    <li><a href="{{ route('entradaProductos') }}">{{ trans('message.entradaProductos') }}</a></li>
+                    <li><a href=" {{ route('facturaLista') }} ">Lista de facturas</a></li>
+                    <li><a href="{{ route('facturaIngreso') }}">Ingresar factura</a></li>
+                    <li><a href="#">Ajustes de entrada</a></li>
+                </ul>
+            </li>
+            {{-- Salidas --}}
+            <li class="treeview">
+                <a href="#"><i class='fa fa-arrow-up'></i> <span>Salida de productos</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('ordenPedidoLista') }}">Lista de ordenes de pedidos</a></li>
+                    <li><a href="{{ route('ordenPedidoIngreso') }}">Nueva orden de pedido</a></li>
+                    <li><a href="{{ route('salidaProductos') }}">Ajustes de salida</a></li>
+                </ul>
+            </li>
+            {{-- Produccion --}}
+            <li class="treeview">
+                <a href="#"><i class='fa fa-gears'></i> <span>Produccion</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Lista de producciones</a></li>
+                    <li><a href="#">Nueva producion</a></li>
                 </ul>
             </li>
             {{-- Reportes --}}

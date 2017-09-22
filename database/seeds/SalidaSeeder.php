@@ -17,6 +17,7 @@ class SalidaSeeder extends Seeder
     	'tipo' => 'Normal',
     	'cantidad' => '100',
     	'valorUnitario' => '1.4',
+        'valorTotal' => '140',
     	'ordenPedido_id' => '1',
     	]);
     }

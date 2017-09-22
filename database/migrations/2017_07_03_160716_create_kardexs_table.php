@@ -16,7 +16,9 @@ class CreateKardexsTable extends Migration
         Schema::create('kardexs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('producto_id')->unsigned();
-            $table->string('metodo')->nullable();
+            $table->float('cantidadActual',16,2)->default(0);
+            $table->float('valorUnitarioActual',8,2)->default(0);
+            $table->float('valorTotalActual',16,2)->default(0);
             $table->timestamps();
         });
     }

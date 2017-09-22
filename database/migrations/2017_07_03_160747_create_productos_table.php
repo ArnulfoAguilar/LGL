@@ -15,15 +15,13 @@ class CreateProductosTable extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->string('codigo')->unique()->nullable();
             $table->integer('unidadMedida_id')->unsinged();
             $table->integer('tipoProducto_id')->unsinged();
-            $table->float('cantidad',8,2)->nullable();
-            $table->float('valorUnitario',8,2)->nullable();
-            $table->float('valorTotal',8,2)->nullable();
-            $table->float('existenciaMin',8,2)->nullable();
-            $table->float('existenciaMax',8,2)->nullable();
+            $table->integer('categoria_id')->unsinged();
+            $table->string('nombre')->unique();
+            $table->string('codigo')->unique()->nullable();
+            $table->float('existenciaMin',8,2)->default(0);
+            $table->float('existenciaMax',8,2)->default(1000);
             $table->timestamps();
         });
     }

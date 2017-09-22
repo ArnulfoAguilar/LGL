@@ -6,17 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Factura extends Model
 {
-	public function entrada()
+	public function entradas()
     {
-        return $this->belongsTo('App\Entrada');
+        return $this->hasMany('App\Entrada');
     }
 
     public function proveedor()
     {
-        return $this->hasOne('App\Proveedor');
+        return $this->belongsTo('App\Proveedor');
     }
 
     protected $fillable = [
-    'numero', 'ingresadoPor','rutaArchivo', 'proveedor_id',
+    'proveedor_id', 'numero', 'detalle', 'rutaArchivo', 'fechaIngreso', 'ingresadoPor',
     ];
 }

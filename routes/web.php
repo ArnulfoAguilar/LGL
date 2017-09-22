@@ -12,7 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	if (Auth::check()) {
+		return redirect('/home');
+	} else {
+		return redirect('/login');
+	}
+    
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -40,8 +45,14 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::name('kardexProducto')->get('/kardex/{id}','InventarioController@KardexProducto');
 
 	// Movimientos
+	Route::name('facturaLista')->get('/factura','MovimientoController@FacturaLista');
 	Route::name('entradaIndividual')->get('/entradaInvividual/','MovimientoController@EntradaIndividual');
-	Route::name('entradaProductos')->get('/entradaProductos/','MovimientoController@EntradaProductos');
+	Route::name('facturaIngreso')->get('/factura/nuevo/','MovimientoController@FacturaIngreso');
+	Route::name('facturaIngresoPost')->post('/factura/nuevo/','MovimientoController@FacturaIngresoPost');
+	Route::name('facturaVer')->get('/factura/{id}','MovimientoController@FacturaVer');
+	Route::name('facturaEliminar')->delete('/factura/{id}','MovimientoController@facturaEliminar');
+	Route::name('ordenPedidoLista')->get('/ordenPedido','MovimientoController@OrdenPedidoLista');
+	Route::name('ordenPedidoIngreso')->get('/ordenPedido/nuevo/','MovimientoController@OrdenPedidoIngreso');
 	Route::name('salidaProductos')->get('/salidaProductos/','MovimientoController@SalidaProductos');
 
 	// Gestion de Usuarios

@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Proveedor extends Model
 {
 
-	public function entrada()
+	public function facturas()
     {
-        return $this->belongsTo('App\Movimiento');
+        return $this->hasMany('App\Movimiento');
     }
 
     protected $fillable = [

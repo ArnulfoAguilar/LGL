@@ -2,7 +2,7 @@
 
 @section('htmlheader_title')
 	{{-- {{ trans('message.tituloProveedorNuevo') }} --}}
-	Venta
+	Entrada de productos
 @endsection
 
 @section('CSSx')
@@ -12,7 +12,7 @@
 
 @section('contentheader_title')
 	{{-- {{ trans('message.tituloProveedorNuevo') }} --}}
-	Venta
+	Entrada de productos
 @endsection
 
 @section('contentheader_description')
@@ -26,28 +26,28 @@
 <!-- Form de nuevo proveedor -->
 <div class="box box-primary">
 	<div class="box-header with-border">
-		<h3 class="box-title">Ingreso de detalle de orden de pedido</h3>
+		<h3 class="box-title">Detalle de factura</h3>
 	</div><!-- /.box-header -->
 	<!-- form start -->
-	<form class="form-horizontal" action="{{ route('proveedorNuevoPost') }}" method="POST">
+	<form class="form-horizontal" action="{{ route('facturaIngresoPost') }}" method="POST">
 		{{ csrf_field() }}
 		<div class="box-body">
 			{{-- Fila  --}}
 			<div class="col-sm-6">
 				{{-- Fecha --}}
 				<div class="form-group">
-					<label class="col-sm-3 control-label">Fecha venta:</label>
+					<label class="col-sm-3 control-label"><b>Fecha ingreso:</b></label>
 					<div class="col-sm-9">
-						<input type="date" class="form-control">
+						<input type="date" class="form-control" name="fechaIngreso">
 					</div>
 				</div>
 			</div>					
 			<div class="col-sm-6">
 				{{-- Codigo factura --}}
 				<div class="form-group">
-					<label class="col-sm-4 control-label">Orden venta n°:</label>
+					<label class="col-sm-4 control-label">Factura n°:</label>
 					<div class="col-sm-8">
-						<input type="text" class="form-control">
+						<input type="text" class="form-control" name="numero">
 					</div>
 				</div>
 			</div>
@@ -57,12 +57,13 @@
 			<div class="col-sm-6">
 				{{-- Proveedor --}}
 				<div class="form-group">
-					<label class="col-sm-3 control-label">Tipo de venta:</label>
+					<label class="col-sm-3 control-label"><b>Proveedor:</b></label>
 					<div class="col-sm-9">
-						<select class="form-control select2" name="tipoProducto_id">
-							<option value="1">Ventas</option>
-							<option value="2">Muestras</option>
-							<option value="2">Producto vencido</option>
+						<select class="form-control select2" style="width: 100%" name="proveedor_id">
+							<option value="" disabled selected>Seleccione un proveedor</option>
+							@foreach($proveedores as $proveedor)
+							<option value="{{ $proveedor->id }}">{{ $proveedor->nombre }}</option>
+							@endforeach
 						</select>
 					</div>
 				</div>
@@ -70,9 +71,9 @@
 			<div class="col-sm-6">
 				{{-- Ingresado por --}}
 				<div class="form-group">
-					<label class="col-sm-4 control-label">Despachado por:</label>
+					<label class="col-sm-4 control-label">Ingresado por:</label>
 					<div class="col-sm-8">
-						<input type="text" class="form-control">
+						<input type="text" class="form-control" name="ingresadoPor" value="{{ Auth::user()->name }} {{ Auth::user()->lastname }}" disabled>
 					</div>
 				</div>
 			</div>
@@ -98,22 +99,23 @@
 							1
 						</td>
 						<td>
-							<select class="form-control select2" name="tipoProducto_id" id="selectProductos">
+							<select class="form-control select2" name="productos_id[]" id="selectProductos" required>
+								<option value="" disabled selected>Seleccione un producto</option>
 								@foreach($productos as $producto)
 								<option value="{{ $producto->id }}">{{ $producto->nombre }}</option>
 								@endforeach
 							</select>
 						</td>
 						<td>
-							<input type="number" class="form-control" placeholder="100" name="nombre">
+							<input type="number" class="form-control" placeholder="100" name="cantidades[]" required>
 						</td>
 						<td>
-							<input type="number" class="form-control" placeholder="100" name="nombre" disabled="true">
+							<input type="number" class="form-control" placeholder="100" name="valoresTotales[]" required>
 						</td>
 						<td align="center">
-							<div id="a1" class="btn btn-danger">
+							{{-- <div id="a1" class="btn btn-danger">
                   				<span class="fa fa-remove"></span>
-                			</div>
+                			</div> --}}
 						</td>
 					</tr>
 				</table>
@@ -122,7 +124,7 @@
 		</div><!-- /.box-body -->
 
 		<div class="box-footer">
-			<a href="{{ route('proveedorLista') }}" class="btn btn-lg btn-default">Cancelar</a>
+			<a href="{{ route('facturaLista') }}" class="btn btn-lg btn-default">Cancelar</a>
 			<button type="submit" class="btn btn-lg btn-success pull-right">Guardar</button>
 		</div>
 	</form>
@@ -167,7 +169,7 @@
 				$('<td>')
 				.append
 				(
-					'<input type="number" class="form-control" placeholder="100" name="nombre">'
+					'<input type="number" class="form-control" placeholder="100" name="cantidades[]" required>'
 				)
 			)
 			.append
@@ -175,7 +177,7 @@
 				$('<td>')
 				.append
 				(
-					'<input type="number" class="form-control" placeholder="100" name="nombre">'
+					'<input type="number" class="form-control" placeholder="100" name="valoresTotales[]" required>'
 				)
 			)
 			.append
@@ -198,6 +200,7 @@
 		// $(this).closest('tr').remove();
 		// console.log($(this).parent().parent());
 		$(this).parent().parent().remove();
+		numero--;
 	}
 
 </script>

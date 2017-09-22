@@ -12,8 +12,13 @@ class Kardex extends Model
         return $this->belongsTo('App\Producto');
     }
 
+    public function movimientos()
+    {
+    	return $this->hasMany('App\Movimiento');
+    }
+
     protected $fillable = [
-        'producto_id', 'metodo',
+        'producto_id', 'cantidadActual', 'valorUnitarioActual', 'valorTotalActual',
     ];
 
     protected $table = 'kardexs';

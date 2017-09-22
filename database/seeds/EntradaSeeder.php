@@ -17,6 +17,7 @@ class EntradaSeeder extends Seeder
     	'tipo' => 'Inicio',
     	'cantidad' => '100',
     	'valorUnitario' => '1.5',
+        'valorTotal' => '150',
     	'factura_id' => '1',
     	]);
 
@@ -25,6 +26,7 @@ class EntradaSeeder extends Seeder
     	'tipo' => 'Normal',
     	'cantidad' => '200',
     	'valorUnitario' => '1.3',
+        'valorTotal' => '260',
     	'factura_id' => '2',
     	]);
 
@@ -33,6 +35,7 @@ class EntradaSeeder extends Seeder
     	'tipo' => 'Normal',
     	'cantidad' => '500',
     	'valorUnitario' => '1.6',
+        'valorTotal' => '800',
     	'factura_id' => '3',
     	]);
     }

@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
 
-	public function salida()
+	public function ordenPedidos()
     {
-        return $this->belongsTo('App\Salida');
+        return $this->hasMany('App\Salida');
     }
 
     protected $fillable = [

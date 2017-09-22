@@ -19,6 +19,7 @@ class UnidadMedidasSeeder extends Seeder
         // Volumen
         UnidadMedida::create(['nombre' => 'Galones', 'abreviatura' => 'gal',]);
         UnidadMedida::create(['nombre' => 'Litros', 'abreviatura' => 'l',]);
+        UnidadMedida::create(['nombre' => 'Metros cúbicos', 'abreviatura' => 'm3',]);
         // Otros
         UnidadMedida::create(['nombre' => 'Unidades', 'abreviatura' => 'u',]);
         UnidadMedida::create(['nombre' => 'Otros', 'abreviatura' => 'otro',]);

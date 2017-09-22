@@ -42,7 +42,7 @@
     <div class="col-xs-12">
       <div class="box box-primary">
         <div class="box-header">
-          <h3 class="box-title">Kardex de {{$producto->nombre}}</h3>
+          <h3 class="box-title">Kardex de {{$kardex->producto->nombre}}</h3>
           <a href="{{ route('inventarioGeneral') }}" class="btn btn-lg btn-default pull-right">Regresar</a>
         </div><!-- /.box-header -->
         <div class="box-body table-responsive">
@@ -70,8 +70,12 @@
             <tbody>
               @foreach($movimientos as $movimiento)
               <tr>
-                <td>{{$movimiento->created_at->format('d-m-Y')}}</td>
-                <td>{{$movimiento->detalle}}</td>
+                <td>{{$movimiento->fechaIngreso}}</td>
+                @if( $movimiento->entrada != null )
+                  <td><a href="{{ route('facturaVer',['id' => $movimiento->entrada->factura->id]) }}">{{$movimiento->detalle}}</a></td>
+                @else
+                  <td><a href="{{ route('facturaVer',['id' => $movimiento->salida->factura->id]) }}">{{$movimiento->detalle}}</a></td>
+                @endif
                 @if($movimiento->entrada != null)
                   <td class="entradaCSS">{{$movimiento->entrada->cantidad}}</td>
                   <td class="entradaCSS">${{ number_format($movimiento->entrada->valorUnitario,2) }}</td>

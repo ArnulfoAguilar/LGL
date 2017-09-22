@@ -46,15 +46,15 @@
               <tr>
               <td>{{$producto->codigo}}</td>
               <td>{{$producto->nombre}}</td>
-              <td>{{$producto->cantidad}} {{$producto->unidadMedida->nombre}}</td>
-              <td>${{ number_format($producto->valor_total,2)}}</td>
-              @if($producto->porcentajeStock > 40)
+              <td>{{$producto->kardex->cantidadActual}} {{$producto->unidadMedida->nombre}}</td>
+              <td>${{ number_format($producto->kardex->valorTotalActual,2)}}</td>
+              @if($producto->porcentajeStock >= 40)
               <td>
                 <div class="progress progress-xs">
                   <div class="progress-bar progress-bar-success" style="width: {{ $producto->porcentajeStock }}%"></div>
                 </div>
               </td>
-              @elseif($producto->porcentajeStock > 20)
+              @elseif($producto->porcentajeStock >= 20)
               <td>
                 <div class="progress progress-xs">
                   <div class="progress-bar progress-bar-yellow" style="width: {{ $producto->porcentajeStock }}%"></div>

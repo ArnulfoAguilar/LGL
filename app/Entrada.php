@@ -14,10 +14,10 @@ class Entrada extends Model
 
     public function factura()
     {
-        return $this->hasOne('App\Factura');
+        return $this->belongsTo('App\Factura');
     }
 
     protected $fillable = [
-    'movimiento_id', 'tipo','cantidad', 'valorUnitario', 'factura_id',
+    'movimiento_id', 'factura_id', 'cantidad', 'valorUnitario', 'valorTotal',
     ];
 }

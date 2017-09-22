@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Movimiento extends Model
 {
 
-    public function producto()
+    public function kardex()
     {
-        return $this->belongsTo('App\Producto');
+        return $this->belongsTo('App\Kardex');
+    }
+
+    public function tipoMovimiento()
+    {
+        return $this->belongsTo('App\TipoMovimiento');
     }
 
     public function entrada()
@@ -23,7 +28,7 @@ class Movimiento extends Model
     }
 
     protected $fillable = [
-    'producto_id', 'detalle','cantidadExistencia', 'valorUnitarioExistencia',
+    'kardex_id', 'tipoMovimiento_id', 'fechaIngreso', 'detalle','cantidadExistencia', 'valorUnitarioExistencia', 'valorTotalExistencia',
     ];
     
 }

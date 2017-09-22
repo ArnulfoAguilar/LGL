@@ -1,8 +1,7 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	{{-- {{ trans('message.tituloProveedorNuevo') }} --}}
-	Entrada de productos
+	Orden de compra
 @endsection
 
 @section('CSSx')
@@ -11,8 +10,7 @@
 @endsection
 
 @section('contentheader_title')
-	{{-- {{ trans('message.tituloProveedorNuevo') }} --}}
-	Entrada de productos
+	Orden de compra
 @endsection
 
 @section('contentheader_description')
@@ -26,60 +24,67 @@
 <!-- Form de nuevo proveedor -->
 <div class="box box-primary">
 	<div class="box-header with-border">
-		<h3 class="box-title">Ingreso de detalle de entrada</h3>
+		<h3 class="box-title">Detalle de orden de pedido</h3>
 	</div><!-- /.box-header -->
 	<!-- form start -->
 	<form class="form-horizontal" action="{{ route('proveedorNuevoPost') }}" method="POST">
 		{{ csrf_field() }}
 		<div class="box-body">
-			{{-- Fila  --}}
-			<div class="col-sm-6">
+			{{-- Cabecera --}}
+			<div class="col-md-6 col-sm-12">
 				{{-- Fecha --}}
 				<div class="form-group">
-					<label class="col-sm-3 control-label">Fecha ingreso:</label>
-					<div class="col-sm-9">
+					<label class="col-md-3  control-label">Fecha venta:</label>
+					<div class="col-md-9 ">
 						<input type="date" class="form-control">
 					</div>
 				</div>
-			</div>					
-			<div class="col-sm-6">
-				{{-- Codigo factura --}}
+				{{-- Cliente --}}
 				<div class="form-group">
-					<label class="col-sm-4 control-label">Factura n°:</label>
-					<div class="col-sm-8">
-						<input type="text" class="form-control">
-					</div>
-				</div>
-			</div>
-			{{-- Fin fila --}}
-			
-			{{-- Fila  --}}
-			<div class="col-sm-6">
-				{{-- Proveedor --}}
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Proveedor:</label>
-					<div class="col-sm-9">
-						<select class="form-control select2" name="tipoProducto_id">
-							@foreach($proveedores as $proveedor)
-							<option value="{{ $proveedor->id }}">{{ $proveedor->nombre }}</option>
+					<label class="col-md-3  control-label">Cliente:</label>
+					<div class="col-md-9 ">
+						<select class="form-control select2" style="width: 100%" name="tipoProducto_id">
+							<option value="" selected disabled>Seleciona un cliente</option>
+							@foreach($clientes as $cliente)
+							<option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
 							@endforeach
 						</select>
 					</div>
 				</div>
-			</div>					
-			<div class="col-sm-6">
-				{{-- Ingresado por --}}
+				{{-- Municipio --}}
 				<div class="form-group">
-					<label class="col-sm-4 control-label">Ingresado por:</label>
-					<div class="col-sm-8">
+					<label class="col-md-3  control-label">Municipio:</label>
+					<div class="col-md-9 ">
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				{{-- Direccion --}}
+				<div class="form-group">
+					<label class="col-md-3  control-label">Direccion:</label>
+					<div class="col-md-9 ">
 						<input type="text" class="form-control">
 					</div>
 				</div>
 			</div>
-			{{-- Fin fila --}}
+			<div class="col-md-6 col-sm-12">
+				{{-- Codigo factura --}}
+				<div class="form-group">
+					<label class="col-md-4  control-label">Orden venta n°:</label>
+					<div class="col-md-8 ">
+						<input type="text" class="form-control">
+					</div>
+				</div>
+				{{-- Despachado por --}}
+				<div class="form-group">
+					<label class="col-md-4  control-label">Despachado por:</label>
+					<div class="col-md-8 ">
+						<input type="text" class="form-control" value="{{ Auth::user()->name }} {{ Auth::user()->lastname }}" disabled name="despachadoPor">
+					</div>
+				</div>
+			</div>
 			
 			{{-- Fila --}}
-			<div class="col-sm-12">
+			<div class="col-md-12">
 				{{-- Tabla de productos --}}
 				<table class="table table-bordered" id="tblProductos">
 					<tr>
@@ -98,22 +103,22 @@
 							1
 						</td>
 						<td>
-							<select class="form-control select2" name="tipoProducto_id" id="selectProductos">
+							<select class="form-control select2" name="productos_id[]" id="selectProductos">
 								@foreach($productos as $producto)
 								<option value="{{ $producto->id }}">{{ $producto->nombre }}</option>
 								@endforeach
 							</select>
 						</td>
 						<td>
-							<input type="number" class="form-control" placeholder="100" name="nombre">
+							<input type="number" class="form-control" placeholder="100" name="cantidades[]">
 						</td>
 						<td>
-							<input type="number" class="form-control" placeholder="100" name="nombre">
+							<input type="number" class="form-control" placeholder="100" name="valoresTotales[]" disabled="true">
 						</td>
 						<td align="center">
-							<div id="a1" class="btn btn-danger">
+							{{-- <div id="a1" class="btn btn-danger">
                   				<span class="fa fa-remove"></span>
-                			</div>
+                			</div> --}}
 						</td>
 					</tr>
 				</table>
@@ -167,7 +172,7 @@
 				$('<td>')
 				.append
 				(
-					'<input type="number" class="form-control" placeholder="100" name="nombre">'
+					'<input type="number" class="form-control" placeholder="100" name="cantidades[]">'
 				)
 			)
 			.append
@@ -175,7 +180,7 @@
 				$('<td>')
 				.append
 				(
-					'<input type="number" class="form-control" placeholder="100" name="nombre">'
+					'<input type="number" class="form-control" placeholder="100" name="valoresTotales[]">'
 				)
 			)
 			.append

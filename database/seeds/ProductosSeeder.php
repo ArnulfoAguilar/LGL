@@ -12,28 +12,11 @@ class ProductosSeeder extends Seeder
      */
     public function run()
     {
-        Producto::create([
-        'nombre' => 'Producto 1', 
-        'codigo' => 'RV1',
-        'unidadMedida_id' => '1',
-        'tipoProducto_id' => '3',
-        'cantidad' => '500',
-        'valorUnitario' => '1.5',
-        'valorTotal' => '750',
-        'existenciaMin' => '20',
-        'existenciaMax' => '1000',
-    	]);
-
-        Producto::create([
-        'nombre' => 'Producto 2', 
-        'codigo' => 'MP1',
-        'unidadMedida_id' => '5',
-        'tipoProducto_id' => '1',
-        'cantidad' => '0',
-        'valorUnitario' => '0',
-        'valorTotal' => '0',
-        'existenciaMin' => '10',
-        'existenciaMax' => '100',
-    	]);
+        factory(App\Producto::class, 50)->create();
+        $productos = Producto::all();
+        foreach ($productos as $producto) {
+        	$producto->codigo = $producto->TipoProducto->codigo . $producto->id;
+        	$producto->save();
+        }
     }
 }

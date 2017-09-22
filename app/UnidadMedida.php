@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class UnidadMedida extends Model
 {
 
-    public function producto()
+    public function productos()
     {
         return $this->hasMany('App\Producto');
     }

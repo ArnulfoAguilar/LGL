@@ -14,10 +14,10 @@ class Salida extends Model
 
     public function ordenPedido()
     {
-        return $this->hasOne('App\OrdenPedido');
+        return $this->belongsTo('App\OrdenPedido');
     }
 	
     protected $fillable = [
-    'movimiento_id', 'tipo','cantidad', 'valorUnitario', 'ordenPedido_id',
+    'movimiento_id', 'ordenPedido_id', 'cantidad', 'valorUnitario', 'valorTotal',
     ];
 }

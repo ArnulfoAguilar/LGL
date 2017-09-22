@@ -48,8 +48,8 @@
               <td>{{$producto->codigo}}</td>
               <td>{{$producto->nombre}}</td>
               <td>{{$producto->unidadMedida->nombre}}</td>
-              <td>{{$producto->cantidad}}</td>
-              <td>{{$producto->valorUnitario}}</td>
+              <td>{{$producto->kardex->cantidadActual}}</td>
+              <td>${{number_format($producto->kardex->valorUnitarioActual,2)}}</td>
               <td align="center">
                 <a href="{{ route('productoEditar', ['id' => $producto->id]) }}" class="btn btn-warning"><span class="fa fa-edit"></span></a>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalEliminar" data-producto="{{ $producto->nombre }}" data-id="{{ $producto->id }}">

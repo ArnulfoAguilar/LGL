@@ -15,10 +15,14 @@ class CreateOrdenPedidosTable extends Migration
     {
         Schema::create('ordenPedidos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('numero')->nullable();
-            $table->string('despachadoPor')->nullable();
-            $table->string('rutaArchivo')->nullable();
             $table->integer('cliente_id')->unsigned()->nullable();
+            $table->integer('municipio_id')->unsigned()->nullable();
+            $table->string('numero')->nullable();
+            $table->string('detalle',140)->default('Sin detalle especifico');
+            $table->string('rutaArchivo')->nullable();
+            $table->date('fechaIngreso');
+            $table->string('despachadoPor')->nullable();
+            $table->string('direccion',140)->nullable();
             $table->timestamps();
         });
     }

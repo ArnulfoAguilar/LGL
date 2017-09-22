@@ -1,7 +1,8 @@
-<?php
+    <?php
 
 use Illuminate\Database\Seeder;
 use App\Kardex;
+use App\Producto;
 
 class KardexsSeeder extends Seeder
 {
@@ -12,9 +13,9 @@ class KardexsSeeder extends Seeder
      */
     public function run()
     {
-        Kardex::create([
-        'producto_id' => '1', 
-        'metodo' => 'Costo Promedio',
-    	]);
+        $productos = Producto::all();
+        foreach ($productos as $producto) {
+            Kardex::create(['producto_id' => $producto->id]);
+        }
     }
 }

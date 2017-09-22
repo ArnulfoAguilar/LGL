@@ -16,10 +16,10 @@ class CreateEntradasTable extends Migration
         Schema::create('entradas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('movimiento_id')->unsigned();
-            $table->string('tipo',10);
+            $table->integer('factura_id')->unsigned()->nullable();
             $table->float('cantidad',8,2);
             $table->float('valorUnitario',8,2);
-            $table->integer('factura_id')->unsigned()->nullable();
+            $table->float('valorTotal',8,2);
             $table->timestamps();
         });
     }
